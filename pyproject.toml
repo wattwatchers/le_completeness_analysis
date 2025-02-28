@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "le-completeness-analysis"
+version = "0.1.0"
+description = ""
+authors = ["Adriaan Stellingwerff <adriaan@fieldapps.co>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+notebook = "^7.3.2"
+python-dotenv = "^1.0.1"
+pendulum = "^3.0.0"
+plotly = "^6.0.0"
+itables = "^2.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
