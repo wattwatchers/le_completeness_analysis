@@ -1,6 +1,6 @@
 # LE completeness analysis
 
-This project is used to analyse offline devices in a fleet with the aim to find out *why* devices are offline.
+This project is used to analyse the completness of LE interval data for a device, a range of devices or a fleet.
 
 # Install
 
