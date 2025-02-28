@@ -2,6 +2,10 @@
 
 This project is used to analyse the completness of LE interval data for a device, a range of devices or a fleet.
 
+# Prerequisites
+- [pyenv](https://github.com/pyenv/pyenv)
+- [poetry](https://python-poetry.org/) 
+
 # Install
 
 - Clone the repo
@@ -26,6 +30,7 @@ In your terminal execute:
 
 ```Shell
 cd le_completeness_analysis/le_completeness_analysis
+poetry shell
 jupyter notebook
 ```
 
