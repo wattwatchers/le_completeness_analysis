@@ -1,0 +1,6 @@
+pandas>=2.2.3
+notebook>=7.3.2
+python-dotenv>=1.0.1
+pendulum>=3.0.0
+plotly>=6.0.0
+itables>= 2.2.5
