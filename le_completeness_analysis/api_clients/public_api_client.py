@@ -206,8 +206,8 @@ class PublicApiClient(RestAPIClient):
                     f"Error retrieving LE data for {device_id} between {interval.timestamp_start} and {interval.timestamp_end}: {error}"
                 )
                 return (None, error)
-
-            energy_data.extend(result)
+            if result is not None:
+                energy_data.extend(result)
 
         return (energy_data, None)
 

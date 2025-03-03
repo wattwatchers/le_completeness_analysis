@@ -21,7 +21,7 @@ poetry install
 
 The app is configured through a `.env` file.
 
-To set this up, copy `.env.example` and rename it to `.env`. Then define the config variables.
+To set this up, copy `example.env` and rename it to `.env`. Then define the config variables.
 
 
 ## Analyse data
