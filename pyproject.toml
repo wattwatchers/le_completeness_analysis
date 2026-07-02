@@ -15,6 +15,9 @@ plotly = "^6.0.0"
 itables = "^2.2.5"
 httpx = "^0.28.1"
 ipykernel = "^7.3.0"
+h11 = ">=0.16.0"
+jupyter-server = ">=2.20.0"
+tornado = ">=6.5.7"
 
 
 [build-system]
