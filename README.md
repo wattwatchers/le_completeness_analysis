@@ -1,16 +1,71 @@
 # LE completeness analysis
 
-This project is used to analyse the completness of LE interval data for a device, a range of devices or a fleet.
+This project is used to analyse the completeness of LE interval data for a device, a range of devices, or a fleet.
 
-The project contains a single notebook, `analysis_colab.ipynb`.
-Open the file in the Github browser and click the "Open in Colab" button at the top of the document.
+The main notebook for local use is `le_completeness_analysis/analysis_colab_daily_completeness.ipynb`.
 
-This will open the Jupyter notebook interface in the Google Colab environment.
+## Local setup
 
-Follow the instructions in the `Device id(s) configuration`, `Period configuration`, `Threshold configuration` and `Other config` cells.
+These steps assume your colleagues are working on macOS and have downloaded the repository as a zip file from GitHub.
 
-By default the notebook only analyses LE interval data aggregated into daily granularity. If you want the notebook to output per device analysis at the 5 minute interval granularity, set the `ANALYSE_UNAGGREGATED_DATA` constant to `True` (and ensure you analyse a maximum of 30 devices). The notebook will then also output missing interval graphs on a per device basis (both as a time series graph and as a time-of-day graph).
+1. Unzip the repository and open a terminal in the project root.
+2. Install Homebrew if it is not already installed:
 
-Execute all cells in the notebook by selecting `Runtime/Run All` from the top menu. Execution may take a while (can take hours) depending on the amount of data that needs to be downloaded.
+	```bash
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	```
 
-Scroll to the `Outputs` section of the notebook, where you will find analysis results at different levels of detail. (top level stats, per device stats for the whole period, per device stats per day, and the raw interval data). Data is presented in tables that can be sorted, filtered and exported.
+3. Install Python 3.12:
+
+	```bash
+	brew install python@3.12
+	```
+
+4. Create and activate a local virtual environment:
+
+	```bash
+	python3.12 -m venv .venv
+	source .venv/bin/activate
+	```
+
+5. Install the notebook dependencies:
+
+	```bash
+	python -m pip install --upgrade pip
+	pip install pandas notebook python-dotenv pendulum plotly itables httpx ipykernel
+	python -m ipykernel install --user --name le-completeness-analysis --display-name "LE Completeness Analysis"
+	```
+
+## Add credentials
+
+Open `le_completeness_analysis/analysis_colab_daily_completeness.ipynb` and enter credentials in the first configuration code cell:
+
+- `API_KEY`: Public REST API key
+- `UA_USERNAME`: User Apps username
+- `UA_PASSWORD`: User Apps password
+
+If you want to analyse all devices available to the API key, leave `DEVICE_IDS` as an empty list.
+If you want to analyse a subset of devices, add the device ids to `DEVICE_IDS`.
+
+## Run the notebook
+
+1. Start Jupyter from the project root:
+
+	```bash
+	jupyter notebook
+	```
+
+2. Open `le_completeness_analysis/analysis_colab_daily_completeness.ipynb`.
+3. Select the `LE Completeness Analysis` kernel if prompted.
+4. Update the values in the `Device id(s) configuration`, `Period configuration`, `Threshold configuration`, and `Other config` cells.
+5. Run all cells.
+
+Execution may take a while, especially for large device sets or long date ranges.
+
+## Re-running the notebook
+
+Before re-running the analysis, delete the old notebook file that contains the previous results and reopen a fresh copy of `le_completeness_analysis/analysis_colab_daily_completeness.ipynb`. This avoids confusion caused by stale outputs from an earlier run.
+
+## Output
+
+Scroll to the `Outputs` section of the notebook for the analysis results. The notebook produces top-level stats, per-device stats for the whole period, per-device stats per day, and raw interval data. Tables can be sorted, filtered, and exported.
