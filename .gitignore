@@ -17,5 +17,7 @@ __pycache__
 */device_collections/*/
 !*/device_collections
 
-le_completeness_analysis\le_completeness_analysis\*
+# Local data caches written by the analysis notebook
+/le_completeness_analysis/data/
+/le_completeness_analysis/le_completeness_analysis/
 
